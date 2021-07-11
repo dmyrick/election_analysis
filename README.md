@@ -1,2 +1,2 @@
 # election_analysis
-Learned to use the programming language Python to complete the election analysis.
+Learned and used Python to complete the analysis on the election data.
