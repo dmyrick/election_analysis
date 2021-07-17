@@ -12,21 +12,20 @@ import csv
 
 file_to_load: str = 'Resources/election_results.csv'
 
-# Direct - Tried and worked.
+# Direct - Completed.
 # Open the election results and read the file
-
-
-# Indirect - HELP - Import cvs code caused error! Not needed.?.?
+# Indirect
 import os
 
 # Assign a variable for the file to load and the path.
 file_to_load = os.path.join("Resources", "election_results.csv")
+
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
     # Print the file object.
     print(election_data)
 
-# 3.4.3 Write Files to Python - Final Examples
+# 3.4.3 Write Files to Python
 # Create a filename variable to a direct or indirect path to the file.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
@@ -50,7 +49,6 @@ winning_percentage = 0
 # 3.4.4 Read Results
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
-
     # To do: read and analyze the data here.
     # Read the file object with the reader function.
     file_reader = csv.reader(election_data)
@@ -58,7 +56,7 @@ with open(file_to_load) as election_data:
     # Read the header row.
     headers = next(file_reader)
 
-# 3.5.(1-6) Get Total Votes/Candidates/Candidates Votes/Candidates Percentage of Votes/Winner
+    # 3.5.(1-6) Get Total Votes/Candidates/Candidates Votes/Candidates Percentage of Votes/Winner
     # Print each row in the CSV file.
     for row in file_reader:
         # Add to the total vote count. [3.5.1]
@@ -69,7 +67,6 @@ with open(file_to_load) as election_data:
 
         # If the candidate does not match any existing candidate.
         if candidate_name not in candidate_options:
-
             # Add the candidate name to the candidate list.
             candidate_options.append(candidate_name)
 
@@ -80,6 +77,7 @@ with open(file_to_load) as election_data:
         candidate_votes[candidate_name] += 1
 
 # Determine the percentage of votes for each candidate by looping through the counts. - 3.5.4
+
 # Iterate through the candidate list.
 for candidate_name in candidate_votes:
     # Retrieve vote count of a candidate.
@@ -94,12 +92,12 @@ for candidate_name in candidate_votes:
     # Determine winning vote count and candidate
     # Determine if the votes is greater than the winning count.
     if (votes > winning_count) and (vote_percentage > winning_percentage):
-         # If true then set winning_count = votes and winning_percent =
-         # vote_percentage.
-         winning_count = votes
-         winning_percentage = vote_percentage
-         # And, set the winning_candidate equal to the candidate's name.
-         winning_candidate = candidate_name
+        # If true then set winning_count = votes and winning_percent =
+        # vote_percentage.
+        winning_count = votes
+        winning_percentage = vote_percentage
+        # And, set the winning_candidate equal to the candidate's name.
+        winning_candidate = candidate_name
 
 #  To do: print out the winning candidate, vote count and percentage to
 #   terminal.
@@ -110,4 +108,3 @@ winning_candidate_summary = (
     f"Winning Percentage: {winning_percentage:.1f}%\n"
     f"-------------------------\n")
 print(winning_candidate_summary)
-
